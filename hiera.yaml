@@ -1,0 +1,15 @@
+:backends:
+ - yaml
+
+:yaml:
+  :datadir: hiera
+
+
+
+:hierarchy:
+  - "node/%{::fqdn}"
+  - "role/%{::role}"
+  - common
+
+
+

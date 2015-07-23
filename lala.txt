@@ -1,0 +1,1 @@
+puppet apply --modulespath=/home/rmoyano/puppet-jenkins/modules/ --hiera_config = /home/rmoyano/puppet-jenkins/hiera.yaml manifestsdir=/home/rmoyano/puppet-jenkins/manifests/site.pp --debug
