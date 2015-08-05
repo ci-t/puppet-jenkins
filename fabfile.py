@@ -7,5 +7,5 @@ def create_container(name,project,image='my-redhat-jenkins-slave'):
     local("docker run --name {} -d -i {} /bin/bash /etc/init.d/slave {} {}".format(name,image,name,label))
 
 @task
-def build_container(image='my-redhat-jenkins-slave',version):
+def build_container(image='my-redhat-jenkins-slave',version='latest'):
     local("cd puppet;librarian-puppet install;cd ../;docker build -t {}:{} .".format(image,version))
