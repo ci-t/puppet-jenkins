@@ -8,4 +8,4 @@ def create_container(name,project,image='my-redhat-jenkins-slave'):
 
 @task
 def build_container(image='my-redhat-jenkins-slave'):
-    local("ls;docker build -t {} .".format(image))
+    local("cd puppet;librarian-puppet install;cd ../;docker build -t {} .".format(image))
