@@ -1,0 +1,2 @@
+java -jar /var/lib/jenkins/swarm-client.jar -master http://192.168.3.29:8080 -username rmoyano -password 123 -labels $2  -name $1 -executors 1
+supervisord
