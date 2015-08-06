@@ -9,3 +9,7 @@ def create_container(name,project,image='my-redhat-jenkins-slave'):
 @task
 def build_container(image='my-redhat-jenkins-slave',version='latest'):
     local("cd puppet;librarian-puppet install;cd ../;docker build -t {}:{} .".format(image,version))
+
+@task
+def test_ado(param):
+    local("echo HOlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
