@@ -6,11 +6,16 @@ $jenkins_pass    = hiera ('jenkins_pass')
 
 )
 {
-  class {'jenkins::slave':
+   class {'jenkins::slave':
       masterurl => $master_url,
       ui_user   => $jenkins_user,
       ui_pass   => $jenkins_pass
 
     }
 
-}
+   file {'/etc/init.d/slave':
+    content => template('jenkins_instance/slave'),
+    mode    => '755'
+  }
+
+} 
