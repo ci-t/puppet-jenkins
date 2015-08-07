@@ -6,18 +6,19 @@ $jenkins_pass    = hiera ('jenkins_pass')
 
 )
 {
+   $jenkins_home='/home/jenkins-slave'
+   $version     ='1.22'
    class {'jenkins::slave':
       masterurl => $master_url,
       ui_user   => $jenkins_user,
-      ui_pass   => $jenkins_pass
-   } ->
-   exec {'/etc/init.d/jenkins-slave stop':
-      
-   } ->
+      ui_pass   => $jenkins_pass,
+      ensure    => 'stopped',
+      version   => $version
+   } -> 
 
    file {'/etc/init.d/slave':
     content => template('jenkins_instance/slave.erb'),
     mode    => '755'
-  }
+  } 1
 
 } 
