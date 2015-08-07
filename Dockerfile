@@ -39,7 +39,7 @@ RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pa
 
 RUN mkdir -p /var/run/supervisord
 ADD supervisord.conf /etc/supervisord.conf
-ADD slave /etc/init.d/slave
-RUN chmod 775 /etc/init.d/slave
+#ADD slave /etc/init.d/slave
+#RUN chmod 775 /etc/init.d/slave
 EXPOSE 22
 

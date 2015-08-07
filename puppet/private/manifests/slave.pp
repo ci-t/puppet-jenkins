@@ -11,7 +11,11 @@ $jenkins_pass    = hiera ('jenkins_pass')
       ui_user   => $jenkins_user,
       ui_pass   => $jenkins_pass
 
-    }
+    } ->
+    
+   service {'jenkins-slave':
+      ensure => 'stopped'
+   } ->
 
    file {'/etc/init.d/slave':
     content => template('jenkins_instance/slave.erb'),
