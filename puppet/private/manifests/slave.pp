@@ -11,10 +11,8 @@ $jenkins_pass    = hiera ('jenkins_pass')
       ui_user   => $jenkins_user,
       ui_pass   => $jenkins_pass
 
-    } ->
-    
-   service {'jenkins-slave':
-      ensure => 'stopped'
+   exec {'/etc/init.d/jenkins-slave stop':
+      
    } ->
 
    file {'/etc/init.d/slave':
