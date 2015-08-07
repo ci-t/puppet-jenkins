@@ -10,7 +10,7 @@ $jenkins_pass    = hiera ('jenkins_pass')
       masterurl => $master_url,
       ui_user   => $jenkins_user,
       ui_pass   => $jenkins_pass
-
+   } ->
    exec {'/etc/init.d/jenkins-slave stop':
       
    } ->
