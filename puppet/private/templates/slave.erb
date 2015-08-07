@@ -1,2 +1,2 @@
-java -jar <%= @jenkins_home %>/swarm-client-<%= @version %>-jar-with-dependencies.jar -master <%= @master_url %> -username <%= @jenkins_user %> -password <%= @jenkins_pass %> -labels $2  -name $1 -executors 1
+nohup java -jar <%= @jenkins_home %>/swarm-client-<%= @version %>-jar-with-dependencies.jar -master <%= @master_url %> -username <%= @jenkins_user %> -password <%= @jenkins_pass %> -labels $2  -name $1 -executors 1 &
 supervisord
