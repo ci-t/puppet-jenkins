@@ -1,0 +1,3 @@
+classes:
+  - jenkins_instance::slave
+  - jenkins_instance::maven
