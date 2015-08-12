@@ -19,6 +19,16 @@ $jenkins_pass    = hiera ('jenkins_pass')
    file {'/etc/init.d/slave':
     content => template('jenkins_instance/slave.erb'),
     mode    => '755'
-  } 
+  }
+
+
+ jenkins_instance::packages{"$name":}
+
+
+
+
+
+
+ 
 
 } 
