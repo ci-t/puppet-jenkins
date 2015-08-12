@@ -1,5 +1,5 @@
 define jenkins_instance::packages(
-$package=hiera('packages')
+$package=undef
 )
 {
  package {"$package":
