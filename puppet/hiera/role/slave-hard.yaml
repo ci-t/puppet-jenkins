@@ -1,0 +1,13 @@
+classes:
+  - jenkins_instance::slave-hard
+
+packages:
+ setup-tools: 
+  name: python-setuptools
+ docker:
+  name: docker
+ device:
+  name: device-mapper-libs
+ device-mapper:
+  name: device-mapper-event-libs
+ 
