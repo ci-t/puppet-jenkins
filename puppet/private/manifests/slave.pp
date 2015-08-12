@@ -22,7 +22,7 @@ $jenkins_pass    = hiera ('jenkins_pass')
   }
 
 
- #create_resources(package,hiera('packages'))
+ create_resources(package,hiera('packages'))
 
 
 

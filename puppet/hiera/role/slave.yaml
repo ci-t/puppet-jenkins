@@ -2,6 +2,11 @@ classes:
   - jenkins_instance::slave
   - jenkins_instance::maven
 
+packages:
+ git: 
+  name: git
+
+
 jenkins_user: 'roque'
 jenkins_pass: '123'
 master_url  : 'http://192.168.3.29:8080'
