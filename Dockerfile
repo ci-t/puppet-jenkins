@@ -28,7 +28,7 @@ RUN echo "=====================MASTER=========================="
 RUN export FACTER_role=master; cd /tmp/puppet; puppet apply --modulepath=/tmp/puppet/modules/ /tmp/puppet/manifests/site.pp  --hiera_config=/tmp/puppet/hiera.yaml  --debug
 
 RUN echo "====================SLAVE-HARD========================="
-RUN export FACTER_role=slave-hard; cd /tmp/puppet; puppet apply --modulepath=/tmp/puppet/modules/ /tmp/puppet/manifests/site.pp  --hiera_config=/tmp/puppet/hiera.yaml  --debug
+RUN export FACTER_role=slave_hard; cd /tmp/puppet; puppet apply --modulepath=/tmp/puppet/modules/ /tmp/puppet/manifests/site.pp  --hiera_config=/tmp/puppet/hiera.yaml  --debug
 
 #ADD http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/1.22/swarm-client-1.22-jar-with-dependencies.jar /var/lib/jenkins/swarm-client.jar
  #RUN java -jar /var/lib/jenkins/swarm-client.jar -master http://192.168.3.29:8080 -username rmoyano -password 123 -labels test
