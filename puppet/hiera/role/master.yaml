@@ -1,3 +1,8 @@
 classes:
   - jenkins_instance
-  - jenkins_instance::maven
+
+packages:
+ fabric: 
+  name: fabric
+  provider: pip
+  require : Package[python-pip]

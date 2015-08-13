@@ -5,6 +5,9 @@ classes:
 packages:
  git: 
   name: git
+ librarian-puppet: 
+  name: librarian-puppet
+  provider: gem
 
 
 jenkins_user: 'roque'

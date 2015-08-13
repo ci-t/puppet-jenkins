@@ -5,11 +5,11 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "base"
+  config.vm.box = "base1"
    config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
 
-   config.vm.box_url = "/home/rmoyano/vagrantbox/CentOS-7.1.1503-x86_64-netboot.box"
+   config.vm.box_url = "https://dl.dropboxusercontent.com/u/106166982/vagrant_centos7-v1.0.box"
 
    config.vm.network :private_network, ip: "192.168.33.10"
    config.vm.hostname = "puppet.dev.com"

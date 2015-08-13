@@ -23,7 +23,7 @@ def provision(host_rsync,remote_user,role_string,home_user='/home/vagrant/puppet
     env.print_only = False
     rsync_project("/home/vagrant/", "./puppet",delete= True, ssh_opts='-o StrictHostKeyChecking=no')
     environment_facts={}
-    environment_facts['FACTER_role'.format(role_string)] = role_string
+    environment_facts['FACTER_role'] = role_string
         
     
     modulepath="{}/modules".format(home_user)
