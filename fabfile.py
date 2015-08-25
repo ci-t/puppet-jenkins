@@ -16,19 +16,19 @@ def test_ado(param):
     local("echo HOlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 
 @task
-def provision(host_rsync,remote_user,role_string,home_user='/home/vagrant/puppet'):
+def provision(host_rsync,remote_user,role_string,home_user='/home/vagrant'):
     env.host_string="{}".format(host_rsync)    
-    env.sudo_user='vagrant'
+    env.sudo_user=remote_user
     env.use_ssh_config = True
     env.print_only = False
-    rsync_project("/home/vagrant/", "./puppet",delete= True, ssh_opts='-o StrictHostKeyChecking=no')
+    rsync_project("{}".format(home_user), "./puppet",delete= True, ssh_opts='-o StrictHostKeyChecking=no')
     environment_facts={}
     environment_facts['FACTER_role'] = role_string
         
     
-    modulepath="{}/modules".format(home_user)
-    manifests="{}/manifests".format(home_user)
-    hiera_config="{}/hiera.yaml".format(home_user)
-    pp="{}/manifests/site.pp".format(home_user)
+    modulepath="{}/puppet/modules".format(home_user)
+    manifests="{}/puppet/manifests".format(home_user)
+    hiera_config="{}/puppet/hiera.yaml".format(home_user)
+    pp="{}/puppet/manifests/site.pp".format(home_user)
     with cd('puppet'), settings(warn_only=True),shell_env(**environment_facts):
      result = run('librarian-puppet install;sudo echo "role == $FACTER_role";sudo puppet apply --modulepath {} --hiera_config {} {} --debug'.format(modulepath,hiera_config,pp))
